@@ -69,7 +69,7 @@ let isModalOpen;
 let isSearchOpen;
 /** فعال و غیر فعالسازی نومیناتیم رورس ای پی آی */
 let isNominatimReverseEnabled = false;
-let isNeshanReverseEnabled = true;
+let isNeshanReverseEnabled = false;
 /** فعال و غیر فعالسازی نشان ژوکودینگ ای پی آی */
 let isNeshanGeocodingEnabled = true;
 /** فعال و غیر فعالسازی نشان سرچ ای پی آی */
