@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Map2</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.map.ir/web-sdk/1.4.2/css/mapp.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.map.ir/web-sdk/1.4.2/css/fa/style.css"
+    />
+    <link rel="stylesheet" href="./styles/style.css" />
+    <link rel="stylesheet" href="./styles/main.css" />
+    <link rel="stylesheet" href="./styles/search.css" />
+    <!-- <link rel="stylesheet" href="./styles/map.css" /> -->
+  </head>
+  <body>
+    <!-- صفحه اصلی -->
+    <section class="main">
+      <div class="map-container">
+        <!-- نقشه -->
+        <div id="map"></div>
+        <p id="out-of-border">نقطه انتخابی خارج از محدوده درسا سرویس است</p>
+        <!-- دکمه بازگشت به موقعیت کاربر -->
+        <button id="return-btn">
+          بازگشت به موقعیت من
+          <img src="./images/ic-mylocation.svg" alt="my-location-icon" />
+        </button>
+        <!-- مارکر وسط صفحه -->
+        <img id="marker" src="./images/marker.svg" alt="marker" />
+        <!-- نمایش اعلان -->
+        <div class="toast-container"></div>
+        <!-- نمایش مختصات -->
+        <div id="coordinates">Latitude: , Longitude:</div>
+      </div>
+      <div class="bottom-sheet">
+        <!-- فیلد جستجو -->
+        <div class="input-container">
+          <img
+            class="input-start-icon"
+            src="./images/ic-location.svg"
+            alt="location-icon"
+          />
+          <input id="input" type="text" autocomplete="off" />
+          <img
+            id="input-btn"
+            class="input-end-icon"
+            src="./images/ic-search.svg"
+            alt="search-icon"
+          />
+        </div>
+        <!-- دکمه تایید مبدأ -->
+        <button id="ok-btn">تایید مبدأ</button>
+      </div>
+      <div id="backdrop"></div>
+      <div id="modal"></div>
+    </section>
+    <!-- سفحه جستجو -->
+    <section id="search-sheet">
+      <div class="top-bar">
+        <h3 class="title">مبدأ</h3>
+        <button id="search-close-btn" class="close-btn">&times;</button>
+      </div>
+      <div class="content">
+        <!-- فیلد جستجو -->
+        <div class="input-container">
+          <img
+            class="input-start-icon"
+            src="./images/ic-location.svg"
+            alt="location-icon"
+          />
+          <input
+            id="search-input"
+            type="text"
+            placeholder="در جستجوی چه مکانی هستید؟"
+            autocomplete="off"
+          />
+          <img
+            id="clear-btn"
+            class="input-end-icon"
+            src="./images/ic-close.svg"
+            alt="clear-icon"
+          />
+        </div>
+        <!-- مکان های ذخیره شده -->
+        <div id="bookmarks-container"></div>
+        <!-- جستجوهای اخیر -->
+        <div id="history-container">
+          <span>جستجوهای اخیر</span>
+          <ul id="history-list" class="list"></ul>
+        </div>
+        <!-- نمایش نتیجه جستجو -->
+        <div class="result-container">
+          <!-- حالت خالی -->
+          <div id="empty-state">
+            <img
+              src="./images/empty-state-image.webp"
+              alt="empty-state-image"
+            />
+            <h2>نتیجه ای نگرفتیم</h2>
+            <p>مکان مورد نظر شما را نیافتیم عبارت دیگری را جستجو کنید</p>
+          </div>
+          <!-- لیست نتایج جستجو -->
+          <ul id="search-list" class="list"></ul>
+        </div>
+      </div>
+    </section>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://cdn.map.ir/web-sdk/1.4.2/js/jquery-3.2.1.min.js"></script>
+    <script src="https://cdn.map.ir/web-sdk/1.4.2/js/mapp.env.js"></script>
+    <script src="https://cdn.map.ir/web-sdk/1.4.2/js/mapp.min.js"></script>
+    <script src="./scripts//classes/neshan.js"></script>
+    <script src="./scripts/classes/nominatim.js"></script>
+    <script src="./scripts/classes/toast.js"></script>
+    <script src="./scripts/script.js"></script>
+    <script src="./scripts/map.js"></script>
+  </body>
+</html>
